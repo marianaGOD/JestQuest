@@ -1,8 +1,142 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap");
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.show {
+  display: block !important;
+}
+
 #initial-screen {
-    width: 100%;
-    height: 100vh;
-    background-image: url("/JestQuest/images/startbackgroud.jpeg");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+  display: none;
+  width: 100%;
+  height: 100vh;
+  background-image: url("/JestQuest/images/startbackgroud.jpeg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#lore-text {
+  background-color: rgb(156, 156, 133);
+  opacity: 0.8;
+  font-family: "Amatic SC", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 40px;
+  text-align: end;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 20%;
+  padding-right: 20%;
+  margin-right: 20%;
+  margin-left: 20%;
+}
+
+#start-btn {
+  background-image: url("/JestQuest/images/playbtn.png");
+  background-size: cover;
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20%;
+  margin-left: 45%;
+  margin-top: 10%;
+}
+
+#instructions-btn {
+  background-image: url("images/instbotao-removebg-preview.png");
+  background-size: cover;
+  width: 200px;
+  height: 120px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20%;
+  margin-left: 45%;
+  margin-top: 10%;
+}
+
+#transition-screen {
+  display: none;
+  background-image: url("images/transitionscreen.webp");
+  width: 100vw; /* 100% of the viewport width */
+  height: 100vh; /* 100% of the viewport height */
+  background-image: url("images/transitionscreen.webp");
+  background-size: cover;
+  position: relative;
+}
+
+#game-screen {
+  display: none;
+}
+
+#room1-btn {
+  background-image: url("images/btn.png");
+  background-size: cover;
+  width: 100px;
+  height: 100px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 60%;
+  left: 20%;
+}
+
+#room2-btn {
+  background-image: url("images/btn.png");
+  background-size: cover;
+  width: 100px;
+  height: 100px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 60%;
+  left: 42%;
+}
+
+#room3-btn {
+  background-image: url("images/btn.png");
+  background-size: cover;
+  width: 100px;
+  height: 100px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 60%;
+  left: 75%;
+}
+
+#room1 {
+  display: none;
+  background-image: url("images/room1.jpeg");
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+#room2 {
+  display: none;
+}
+
+#room3 {
+  display: none;
+}
+
+#end-screen {
+  display: none;
 }

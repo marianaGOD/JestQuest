@@ -1,28 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
     <title>JestQuest</title>
-</head>
-<body>
-    <div id="initial-screen">
-        <div id="lore-text"></div>
-        <button id="start-btn">PLAY</button>
-        <button id="instructions-btn">INSTRUCTIONS</button>
-        <div id="instructions-screen"></div>
-        <img src="images/jester.png" alt="badlooking jester">
+  </head>
+  <body>
+    <div id="initial-screen" class="show">
+      <div id="lore-text">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo
+          optio nulla pariatur laudantium animi at. Eligendi debitis hic
+          nostrum? Minus alias at ad modi fugit explicabo quo eius error!
+          Debitis!
+        </p>
+      </div>
+      <button id="start-btn">PLAY</button>
+      <button id="instructions-btn">INSTRUCTIONS</button>
+      <div id="instructions-screen"></div>
     </div>
-    <div id="transition-screen"></div>
+
     <div id="game-screen">
-
-        <div id="room1"></div>
-        <div id="room2"></div>
-        <div id="room3"></div>
-
+      <p>oi</p>
+      <div id="transition-screen">
+        <button id="room1-btn"></button>
+        <button id="room2-btn"></button>
+        <button id="room3-btn"></button>
+      </div>
+      <div id="player-info"></div>
+      <div id="room1">
+        <button class="exit-room-btn">Exit Level</button>
+      </div>
+      <div id="room2">
+        <button class="exit-room-btn">Exit Level</button>
+      </div>
+      <div id="room3">
+        <button class="exit-room-btn">Exit Level</button>
+      </div>
     </div>
     <div id="end-screen"></div>
-</body>
- <script src="index.js"></script>
+  </body>
+  <script src="index.js"></script>
 </html>
