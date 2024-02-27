@@ -52,6 +52,14 @@ body {
   margin-top: 10%;
 }
 
+#instructions-screen {
+  display: none;
+  background-image: url("images/instructionsbackground.jpeg");
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+
 #instructions-btn {
   background-image: url("images/instbotao-removebg-preview.png");
   background-size: cover;
@@ -69,9 +77,8 @@ body {
 #transition-screen {
   display: none;
   background-image: url("images/transitionscreen.webp");
-  width: 100vw; /* 100% of the viewport width */
-  height: 100vh; /* 100% of the viewport height */
-  background-image: url("images/transitionscreen.webp");
+  width: 100vw; 
+  height: 100vh; 
   background-size: cover;
   position: relative;
 }
@@ -129,12 +136,73 @@ body {
   width: 100%;
   height: 100vh;
 }
+
+#room1-door1-btn {background-image: url("images/maybebtn.png");
+  background-size: cover;
+  width: 100px;
+  height: 100px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 60%;
+  left: 15%;
+}
+
+#room1-door2-btn {background-image: url("images/maybebtn.png");
+  background-size: cover;
+  width: 100px;
+  height: 100px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 45%;
+  left: 40%;
+}
+
+#room1-door3-btn {background-image: url("images/maybebtn.png");
+  background-size: cover;
+  width: 100px;
+  height: 100px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 45%;
+  left: 62%;
+}
+
+#room1-door4-btn {background-image: url("images/maybebtn.png");
+  background-size: cover;
+  width: 100px;
+  height: 100px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 60%;
+  left: 88%;
+}
+
 #room2 {
   display: none;
+  background-image: url("images/room2.jpeg");
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
 }
 
 #room3 {
   display: none;
+  background-image: url("images/room3.jpeg");
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
 }
 
 #end-screen {
