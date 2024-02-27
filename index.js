@@ -57,13 +57,13 @@ class Item {
     this.randomizeItem();
   }
   randomizeItem() {
-    let bottle = { value: 3, imageUrl: "../objbottle.png" };
-    let candle = { value: 1, imageUrl: "../objcandle.png" };
-    let wrench = { value: 2, imageUrl: "../objchave.png" };
-    let doll = { value: 7, imageUrl: "../objdoll.png" };
-    let gramophone = { value: 6, imageUrl: "../objgramophone.png" };
-    let phone = { value: 5, imageUrl: "../objphone.png" };
-    let picture = { value: 8, imageUrl: "../objpicture.png" };
+    let bottle = { value: 3, imageUrl: "images/objbottle.jpeg" };
+    let candle = { value: 1, imageUrl: "images/objcandle.jpeg" };
+    let wrench = { value: 2, imageUrl: "images/objchave.jpeg" };
+    let doll = { value: 7, imageUrl: "images/objdoll.jpeg" };
+    let gramophone = { value: 6, imageUrl: "images/objgramophone.jpeg" };
+    let phone = { value: 5, imageUrl: "images/objphone.jpeg" };
+    let picture = { value: 8, imageUrl: "images/objpicture.jpeg" };
 
     let objArr = [];
     objArr.push(bottle, candle, wrench, doll, gramophone, phone, picture);
@@ -72,6 +72,7 @@ class Item {
     let choosenObject = objArr[randomObject];
     this.value = choosenObject.value;
     this.imageUrl = choosenObject.imageUrl;
+    console.log(this);
   }
 }
 
@@ -84,6 +85,15 @@ class Player {
 
 let game = new Game();
 let player = new Player("Jester");
+let mySound = new Audio("sound/backgroundMusic.mp3");
+setTimeout(() => {
+  mySound.play();
+}, 3000);
+mySound.volume = 0.2;
+let hauntedHouseSound = new Audio("sound/haunted.mp3"); //https://www.youtube.com/watch?v=OWKFovmuoQs
+hauntedHouseSound.volume = 0.1
+let booSound = new Audio ("sound/boo.mp3")
+booSound.volume = 1
 
 //HTML CONTAINERS
 const startScreenContainer = document.getElementById("initial-screen");
@@ -140,7 +150,6 @@ room3Door6Btn.addEventListener("click", openRoomDoor6);
 const room3Door7Btn = document.getElementById("room3-door7-btn");
 room3Door7Btn.addEventListener("click", openRoomDoor7);
 
-
 //FUNCTIONS
 function goToInstructions() {
   startScreenContainer.classList.remove("show");
@@ -166,21 +175,25 @@ function prepareRoom1() {
   room1.doors.push(door3);
   room1.doors.push(door4);
   game.currentRoom = room1;
+  mySound.pause();
+  hauntedHouseSound.play();
   console.log(game.currentRoom);
 }
 
 function prepareRoom2() {
-  let room2 = new Room("Room1", 2);
+  let room2 = new Room("Room2", 2);
   let door1 = new Door("Door1");
   let door2 = new Door("Door2");
   room2.doors.push(door1);
   room2.doors.push(door2);
   game.currentRoom = room2;
+  mySound.pause();
+  hauntedHouseSound.play();
   console.log(game.currentRoom);
 }
 
 function prepareRoom3() {
-  let room3 = new Room("Room1", 7);
+  let room3 = new Room("Room3", 7);
   let door1 = new Door("Door1");
   let door2 = new Door("Door2");
   let door3 = new Door("Door3");
@@ -196,83 +209,123 @@ function prepareRoom3() {
   room3.doors.push(door6);
   room3.doors.push(door7);
   game.currentRoom = room3;
+  mySound.pause();
+  hauntedHouseSound.play();
   console.log(game.currentRoom);
 }
 
 function openRoomDoor1() {
-  let isGoodDoor = game.currentRoom.isGoodDoor;
+  let isGoodDoor = game.currentRoom.doors[0].isGoodDoor;
   let doorItem = game.currentRoom.doors[0].item;
   if (isGoodDoor) {
     player.score += doorItem.value;
+    showPopupGoodDoor(doorItem.imageUrl);
   } else {
     player.score -= Math.floor(Math.random() * (player.score - 1) + 1);
+    showPopupBadDoor();
   }
+  hauntedHouseSound.pause();
   console.log(player);
 }
 
 function openRoomDoor2() {
-  let isGoodDoor = game.currentRoom.isGoodDoor;
-  let doorItem = game.currentRoom.doors[0].item;
+  let isGoodDoor = game.currentRoom.doors[1].isGoodDoor;
+  let doorItem = game.currentRoom.doors[1].item;
   if (isGoodDoor) {
     player.score += doorItem.value;
+    showPopupGoodDoor(doorItem.imageUrl);
   } else {
     player.score -= Math.floor(Math.random() * (player.score - 1) + 1);
+    showPopupBadDoor();
   }
+  hauntedHouseSound.pause();
   console.log(player);
 }
 
 function openRoomDoor3() {
-  let isGoodDoor = game.currentRoom.isGoodDoor;
-  let doorItem = game.currentRoom.doors[0].item;
+  let isGoodDoor = game.currentRoom.doors[2].isGoodDoor;
+  let doorItem = game.currentRoom.doors[2].item;
   if (isGoodDoor) {
     player.score += doorItem.value;
+    showPopupGoodDoor(doorItem.imageUrl);
   } else {
     player.score -= Math.floor(Math.random() * (player.score - 1) + 1);
+    showPopupBadDoor();
   }
+  hauntedHouseSound.pause();
   console.log(player);
 }
 
 function openRoomDoor4() {
-  let isGoodDoor = game.currentRoom.isGoodDoor;
-  let doorItem = game.currentRoom.doors[0].item;
+  let isGoodDoor = game.currentRoom.doors[3].isGoodDoor;
+  let doorItem = game.currentRoom.doors[3].item;
   if (isGoodDoor) {
     player.score += doorItem.value;
+    showPopupGoodDoor(doorItem.imageUrl);
   } else {
     player.score -= Math.floor(Math.random() * (player.score - 1) + 1);
+    showPopupBadDoor();
   }
+  hauntedHouseSound.pause();
   console.log(player);
 }
 
 function openRoomDoor5() {
-  let isGoodDoor = game.currentRoom.isGoodDoor;
-  let doorItem = game.currentRoom.doors[0].item;
+  let isGoodDoor = game.currentRoom.doors[4].isGoodDoor;
+  let doorItem = game.currentRoom.doors[4].item;
   if (isGoodDoor) {
     player.score += doorItem.value;
+    showPopupGoodDoor(doorItem.imageUrl);
   } else {
     player.score -= Math.floor(Math.random() * (player.score - 1) + 1);
+    showPopupBadDoor();
   }
+  hauntedHouseSound.pause();
   console.log(player);
 }
 
 function openRoomDoor6() {
-  let isGoodDoor = game.currentRoom.isGoodDoor;
-  let doorItem = game.currentRoom.doors[0].item;
+  let isGoodDoor = game.currentRoom.doors[5].isGoodDoor;
+  let doorItem = game.currentRoom.doors[5].item;
   if (isGoodDoor) {
     player.score += doorItem.value;
+    showPopupGoodDoor(doorItem.imageUrl);
   } else {
     player.score -= Math.floor(Math.random() * (player.score - 1) + 1);
+    showPopupBadDoor();
   }
+  hauntedHouseSound.pause();
   console.log(player);
 }
 
 function openRoomDoor7() {
-  let isGoodDoor = game.currentRoom.isGoodDoor;
-  let doorItem = game.currentRoom.doors[0].item;
+  let isGoodDoor = game.currentRoom.doors[6].isGoodDoor;
+  let doorItem = game.currentRoom.doors[6].item;
   if (isGoodDoor) {
     player.score += doorItem.value;
+    showPopupGoodDoor(doorItem.imageUrl);
   } else {
     player.score -= Math.floor(Math.random() * (player.score - 1) + 1);
+    showPopupBadDoor();
   }
+  hauntedHouseSound.pause();
   console.log(player);
 }
 
+function showPopupGoodDoor(imageUrl) {
+  document.getElementById("popup").style.display = "block";
+  document.getElementById("item-found-img").src = imageUrl;
+}
+
+function showPopupBadDoor() {
+  let popup = document.getElementById("popup");
+  popup.style.display = "block";
+  popup.classList.add("bad-door-screen");
+  document.getElementById("item-found-img").src = "images/doorbackground.jpeg";
+  booSound.play()
+}
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+  document.getElementById("popup").classList.remove("bad-door-screen");
+}

@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
+    
+  <link rel="icon" type="image/x-icon" href="images/jester.png">
     <title>JestQuest</title>
   </head>
   <body>
@@ -29,7 +31,15 @@
         <button id="room3-btn"></button>
       </div>
       <div id="player-info"></div>
-      <div id="opened-door">you opened a door!</div>
+      <div id="popup" class="fullscreen-popup">
+        <p>you opened a door!</p>
+        <img
+          id="item-found-img"
+          src=""
+          alt="item found"
+        />
+        <button onclick="closePopup()">Close</button>
+      </div>
       <div id="room1">
         <button id="room1-door1-btn">Door 1</button>
         <button id="room1-door2-btn">Door 2</button>
