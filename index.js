@@ -62,10 +62,10 @@ class Item {
     let bottle = { value: 3, imageUrl: "images/objbottle.jpeg" };
     let candle = { value: 1, imageUrl: "images/objcandle.jpeg" };
     let wrench = { value: 2, imageUrl: "images/objchave.jpeg" };
-    let doll = { value: 7, imageUrl: "images/objdoll.jpeg" };
+    let doll = { value: 6, imageUrl: "images/objdoll.jpeg" };
     let gramophone = { value: 6, imageUrl: "images/objgramophone.jpeg" };
     let phone = { value: 5, imageUrl: "images/objphone.jpeg" };
-    let picture = { value: 8, imageUrl: "images/objpicture.jpeg" };
+    let picture = { value: 6, imageUrl: "images/objpicture.jpeg" };
 
     let objArr = [];
     objArr.push(bottle, candle, wrench, doll, gramophone, phone, picture);
@@ -96,13 +96,13 @@ let hauntedHouseSound = new Audio("sound/haunted.mp3"); //https://www.youtube.co
 hauntedHouseSound.volume = 0.1;
 let booSound = new Audio("sound/boo.mp3");
 booSound.volume = 1;
+let circusSound = new Audio ("sound/circus.mp3")
+circusSound.volume = 0.5
 
 //HTML CONTAINERS
 const startScreenContainer = document.getElementById("initial-screen");
 const gameScreenContainer = document.getElementById("game-screen");
-const instructionsScreenContainer = document.getElementById(
-  "instructions-screen"
-);
+const instructionsScreenContainer = document.getElementById("instructions-screen");
 const transitionScreenContainer = document.getElementById("transition-screen");
 const gameEndScreenContainer = document.getElementById("end-screen");
 const playerInfoContainer = document.getElementById("player-info");
@@ -362,13 +362,14 @@ function showPopupGoodDoor(imageUrl) {
   document.getElementById("popup").classList.add("show");
   document.getElementById("item-found-img").src = imageUrl;
   document.getElementById("player-score").innerText = player.score;
+  circusSound.play()
 }
 
 function showPopupBadDoor() {
   let popup = document.getElementById("popup");
   popup.classList.add("show");
   popup.classList.add("bad-door-screen");
-  document.getElementById("item-found-img").src = "images/doorbackground.jpeg";
+  document.getElementById("item-found-img").src = "images/baddoor.jpeg";
   booSound.play();
   document.getElementById("player-score").innerText = player.score;
 }
@@ -376,6 +377,8 @@ function showPopupBadDoor() {
 function closePopup() {
   document.getElementById("popup").classList.remove("show");
   document.getElementById("popup").classList.remove("bad-door-screen");
+  circusSound.pause()
+  booSound.pause()
 }
 
 function endGame() {

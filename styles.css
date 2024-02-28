@@ -24,23 +24,28 @@ body {
 #lore-text {
   background-color: rgb(156, 156, 133);
   opacity: 0.8;
-  font-family: "Amatic SC", sans-serif;
-  font-weight: 700;
+   font-family: "Macondo", cursive;
+  font-weight: 400;
   font-style: normal;
-  font-size: 40px;
-  text-align: end;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-left: 20%;
-  padding-right: 20%;
+  font-size: 20px;
+  text-align:right
+  justify-content:end;
+  align-items;
+  padding-left: 15%;
+  padding-right: 2%;
   margin-right: 20%;
   margin-left: 20%;
+  margin-top: 0%;
+  padding-top: 0%;
+  width: 100vh;
 }
 
 #start-btn {
-  background-image: url("/JestQuest/images/playbtn.png");
-  background-size: cover;
+  background-image: url("/JestQuest/images/playbtn-removebg-preview.png");
+  background-size:cover;
+  border-radius: 150%;
+  background-color: transparent;
+  border: none;
   width: 200px;
   height: 200px;
   cursor: pointer;
@@ -54,7 +59,7 @@ body {
 
 #instructions-screen {
   display: none;
-  background-image: url("images/instructionsbackground.jpeg");
+  background-image: url("images/instructions.jpeg");
   background-size: cover;
   width: 100%;
   height: 100vh;
@@ -94,7 +99,7 @@ body {
 }
 
 #room1-btn {
-  background-image: url("images/btn.png");
+  background-image: url("images/portas.png");
   background-size: cover;
   width: 100px;
   height: 100px;
@@ -108,7 +113,7 @@ body {
 }
 
 #room2-btn {
-  background-image: url("images/btn.png");
+  background-image: url("images/portas.png");
   background-size: cover;
   width: 100px;
   height: 100px;
@@ -122,7 +127,7 @@ body {
 }
 
 #room3-btn {
-  background-image: url("images/btn.png");
+  background-image: url("images/portas.png");
   background-size: cover;
   width: 100px;
   height: 100px;
@@ -144,7 +149,7 @@ body {
 }
 
 #room1-door1-btn {
-  background-image: url("images/maybebtn.png");
+  background-image: url("images/portas.png");
   background-size: cover;
   width: 100px;
   height: 100px;
@@ -158,7 +163,7 @@ body {
 }
 
 #room1-door2-btn {
-  background-image: url("images/maybebtn.png");
+  background-image: url("images/portas.png");
   background-size: cover;
   width: 100px;
   height: 100px;
@@ -172,7 +177,7 @@ body {
 }
 
 #room1-door3-btn {
-  background-image: url("images/maybebtn.png");
+  background-image: url("images/portas.png");
   background-size: cover;
   width: 100px;
   height: 100px;
@@ -186,7 +191,7 @@ body {
 }
 
 #room1-door4-btn {
-  background-image: url("images/maybebtn.png");
+  background-image: url("images/portas.png");
   background-size: cover;
   width: 100px;
   height: 100px;
@@ -208,7 +213,7 @@ body {
 }
 
 #room2-door1-btn {
-  background-image: url("images/maybebtn.png");
+  background-image: url("images/portas.png");
   background-size: cover;
   width: 100px;
   height: 100px;
@@ -222,7 +227,7 @@ body {
 }
 
 #room2-door2-btn {
-  background-image: url("images/maybebtn.png");
+  background-image: url("images/portas.png");
   background-size: cover;
   width: 100px;
   height: 100px;
@@ -244,7 +249,7 @@ body {
 }
 
 #room3-door1-btn {
-  background-image: url("images/maybebtn.png");
+  background-image: url("images/portas.png");
   background-size: cover;
   width: 100px;
   height: 100px;
@@ -258,7 +263,7 @@ body {
 }
 
 #room3-door2-btn {
-  background-image: url("images/maybebtn.png");
+  background-image: url("images/portas.png");
   background-size: cover;
   width: 100px;
   height: 100px;
@@ -272,7 +277,7 @@ body {
 }
 
 #room3-door3-btn {
-  background-image: url("images/maybebtn.png");
+  background-image: url("images/portas.png");
   background-size: cover;
   width: 100px;
   height: 100px;
@@ -286,7 +291,7 @@ body {
 }
 
 #room3-door4-btn {
-  background-image: url("images/maybebtn.png");
+  background-image: url("images/portas.png");
   background-size: cover;
   width: 100px;
   height: 100px;
@@ -300,7 +305,7 @@ body {
 }
 
 #room3-door5-btn {
-  background-image: url("images/maybebtn.png");
+  background-image: url("images/portas.png");
   background-size: cover;
   width: 100px;
   height: 100px;
@@ -314,7 +319,7 @@ body {
 }
 
 #room3-door6-btn {
-  background-image: url("images/maybebtn.png");
+  background-image: url("images/portas.png");
   background-size: cover;
   width: 100px;
   height: 100px;
@@ -328,7 +333,7 @@ body {
 }
 
 #room3-door7-btn {
-  background-image: url("images/maybebtn.png");
+  background-image: url("images/portas.png");
   background-size: cover;
   width: 100px;
   height: 100px;
@@ -343,10 +348,19 @@ body {
 
 #end-screen-victory {
   display: none;
+  background-image: url("images/victorybackground.jpeg");
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  );
 }
 
 #end-screen-defeat {
   display: none;
+  background-image: url("images/defeatbackground.jpeg");
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
 }
 
 /*POPUP*/
@@ -372,4 +386,33 @@ body {
 }
 
 .bad-door-screen {
+}
+
+.shiny-button {
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 -6mm 4mm rgb(221, 188, 79));
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-10px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(10px);
+  }
+}
+
+.shiny-button:hover {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
 }
