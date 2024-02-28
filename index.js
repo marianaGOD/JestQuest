@@ -10,6 +10,7 @@ class Game {
     gameScreenContainer.classList.add("show");
     transitionScreenContainer.classList.add("show");
     playerInfoContainer.classList.add("show");
+    document.getElementById("player-score").innerText = player.score;
   }
   gotToRoomOne() {
     prepareRoom1();
@@ -39,6 +40,7 @@ class Room {
 class Door {
   constructor(name) {
     this.name = name;
+    this.isOpened = false
     this.randomizeDoors();
   }
   randomizeDoors() {
@@ -91,9 +93,9 @@ setTimeout(() => {
 }, 3000);
 mySound.volume = 0.2;
 let hauntedHouseSound = new Audio("sound/haunted.mp3"); //https://www.youtube.com/watch?v=OWKFovmuoQs
-hauntedHouseSound.volume = 0.1
-let booSound = new Audio ("sound/boo.mp3")
-booSound.volume = 1
+hauntedHouseSound.volume = 0.1;
+let booSound = new Audio("sound/boo.mp3");
+booSound.volume = 1;
 
 //HTML CONTAINERS
 const startScreenContainer = document.getElementById("initial-screen");
@@ -107,6 +109,8 @@ const playerInfoContainer = document.getElementById("player-info");
 const room1Container = document.getElementById("room1");
 const room2Container = document.getElementById("room2");
 const room3Container = document.getElementById("room3");
+const endScreenVictory = document.getElementById("end-screen-victory");
+const endScreenDefeat = document.getElementById("end-screen-defeat");
 
 //BUTTONS
 const startBtn = document.getElementById("start-btn");
@@ -217,6 +221,10 @@ function prepareRoom3() {
 function openRoomDoor1() {
   let isGoodDoor = game.currentRoom.doors[0].isGoodDoor;
   let doorItem = game.currentRoom.doors[0].item;
+  let isOpenedDoor = game.currentRoom.doors[0].isOpened
+  if (isOpenedDoor === true) {
+    return
+  }
   if (isGoodDoor) {
     player.score += doorItem.value;
     showPopupGoodDoor(doorItem.imageUrl);
@@ -225,12 +233,18 @@ function openRoomDoor1() {
     showPopupBadDoor();
   }
   hauntedHouseSound.pause();
+  endGame();
+  game.currentRoom.doors[0].isOpened = true;
   console.log(player);
 }
 
 function openRoomDoor2() {
   let isGoodDoor = game.currentRoom.doors[1].isGoodDoor;
   let doorItem = game.currentRoom.doors[1].item;
+  let isOpenedDoor = game.currentRoom.doors[1].isOpened;
+  if (isOpenedDoor === true) {
+    return;
+  }
   if (isGoodDoor) {
     player.score += doorItem.value;
     showPopupGoodDoor(doorItem.imageUrl);
@@ -239,12 +253,18 @@ function openRoomDoor2() {
     showPopupBadDoor();
   }
   hauntedHouseSound.pause();
+  endGame();
+  game.currentRoom.doors[1].isOpened = true;
   console.log(player);
 }
 
 function openRoomDoor3() {
   let isGoodDoor = game.currentRoom.doors[2].isGoodDoor;
   let doorItem = game.currentRoom.doors[2].item;
+  let isOpenedDoor = game.currentRoom.doors[2].isOpened;
+  if (isOpenedDoor === true) {
+    return;
+  }
   if (isGoodDoor) {
     player.score += doorItem.value;
     showPopupGoodDoor(doorItem.imageUrl);
@@ -253,12 +273,18 @@ function openRoomDoor3() {
     showPopupBadDoor();
   }
   hauntedHouseSound.pause();
+  endGame();
+  game.currentRoom.doors[2].isOpened = true;
   console.log(player);
 }
 
 function openRoomDoor4() {
   let isGoodDoor = game.currentRoom.doors[3].isGoodDoor;
   let doorItem = game.currentRoom.doors[3].item;
+  let isOpenedDoor = game.currentRoom.doors[3].isOpened;
+  if (isOpenedDoor === true) {
+    return;
+  }
   if (isGoodDoor) {
     player.score += doorItem.value;
     showPopupGoodDoor(doorItem.imageUrl);
@@ -267,12 +293,18 @@ function openRoomDoor4() {
     showPopupBadDoor();
   }
   hauntedHouseSound.pause();
+  endGame();
+  game.currentRoom.doors[3].isOpened = true;
   console.log(player);
 }
 
 function openRoomDoor5() {
   let isGoodDoor = game.currentRoom.doors[4].isGoodDoor;
   let doorItem = game.currentRoom.doors[4].item;
+  let isOpenedDoor = game.currentRoom.doors[4].isOpened;
+  if (isOpenedDoor === true) {
+    return;
+  }
   if (isGoodDoor) {
     player.score += doorItem.value;
     showPopupGoodDoor(doorItem.imageUrl);
@@ -281,12 +313,18 @@ function openRoomDoor5() {
     showPopupBadDoor();
   }
   hauntedHouseSound.pause();
+  endGame();
+  game.currentRoom.doors[4].isOpened = true;
   console.log(player);
 }
 
 function openRoomDoor6() {
   let isGoodDoor = game.currentRoom.doors[5].isGoodDoor;
   let doorItem = game.currentRoom.doors[5].item;
+  let isOpenedDoor = game.currentRoom.doors[5].isOpened;
+  if (isOpenedDoor === true) {
+    return;
+  }
   if (isGoodDoor) {
     player.score += doorItem.value;
     showPopupGoodDoor(doorItem.imageUrl);
@@ -295,12 +333,18 @@ function openRoomDoor6() {
     showPopupBadDoor();
   }
   hauntedHouseSound.pause();
+  endGame();
+  game.currentRoom.doors[5].isOpened = true;
   console.log(player);
 }
 
 function openRoomDoor7() {
   let isGoodDoor = game.currentRoom.doors[6].isGoodDoor;
   let doorItem = game.currentRoom.doors[6].item;
+  let isOpenedDoor = game.currentRoom.doors[6].isOpened;
+  if (isOpenedDoor === true) {
+    return;
+  }
   if (isGoodDoor) {
     player.score += doorItem.value;
     showPopupGoodDoor(doorItem.imageUrl);
@@ -309,23 +353,59 @@ function openRoomDoor7() {
     showPopupBadDoor();
   }
   hauntedHouseSound.pause();
+  endGame();
+  game.currentRoom.doors[6].isOpened = true;
   console.log(player);
 }
 
 function showPopupGoodDoor(imageUrl) {
-  document.getElementById("popup").style.display = "block";
+  document.getElementById("popup").classList.add("show");
   document.getElementById("item-found-img").src = imageUrl;
+  document.getElementById("player-score").innerText = player.score;
 }
 
 function showPopupBadDoor() {
   let popup = document.getElementById("popup");
-  popup.style.display = "block";
+  popup.classList.add("show");
   popup.classList.add("bad-door-screen");
   document.getElementById("item-found-img").src = "images/doorbackground.jpeg";
-  booSound.play()
+  booSound.play();
+  document.getElementById("player-score").innerText = player.score;
 }
 
 function closePopup() {
-  document.getElementById("popup").style.display = "none";
+  document.getElementById("popup").classList.remove("show");
   document.getElementById("popup").classList.remove("bad-door-screen");
+}
+
+function endGame() {
+  if (player.score <= 0) {
+    endScreenDefeat.classList.add("show");
+    gameScreenContainer.classList.remove("show");
+  } else if (player.score >= 13) {
+    endScreenVictory.classList.add("show");
+    gameScreenContainer.classList.remove("show");
+  }
+}
+
+function restartGame() {
+  game = new Game();
+  player = new Player("Jester");
+  mySound = new Audio("sound/backgroundMusic.mp3");
+  setTimeout(() => {
+    mySound.play();
+  }, 3000);
+  mySound.volume = 0.2;
+  hauntedHouseSound = new Audio("sound/haunted.mp3"); //https://www.youtube.com/watch?v=OWKFovmuoQs
+  hauntedHouseSound.volume = 0.1;
+  booSound = new Audio("sound/boo.mp3");
+  booSound.volume = 1;
+  endScreenDefeat.classList.remove("show");
+  endScreenVictory.classList.remove("show");
+  gameScreenContainer.classList.remove("show");
+  room1Container.classList.remove("show");
+  room2Container.classList.remove("show");
+  room3Container.classList.remove("show");
+  startScreenContainer.classList.add("show");
+  document.getElementById("popup").classList.remove("show");
 }

@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    
-  <link rel="icon" type="image/x-icon" href="images/jester.png">
+
+    <link rel="icon" type="image/x-icon" href="images/jester.png" />
     <title>JestQuest</title>
   </head>
   <body>
@@ -24,20 +24,17 @@
     </div>
 
     <div id="game-screen">
-      <p>oi</p>
       <div id="transition-screen">
         <button id="room1-btn"></button>
         <button id="room2-btn"></button>
         <button id="room3-btn"></button>
       </div>
-      <div id="player-info"></div>
+      <div id="player-info">
+        <p id="player-score"></p>
+      </div>
       <div id="popup" class="fullscreen-popup">
         <p>you opened a door!</p>
-        <img
-          id="item-found-img"
-          src=""
-          alt="item found"
-        />
+        <img id="item-found-img" src="" alt="item found" />
         <button onclick="closePopup()">Close</button>
       </div>
       <div id="room1">
@@ -63,7 +60,12 @@
         <button class="exit-room-btn">Exit Level</button>
       </div>
     </div>
-    <div id="end-screen"></div>
+    <div id="end-screen-victory">WINNER
+      <button onclick="restartGame()"></button>
+    </div>
+    <div id="end-screen-defeat">LOSER
+      <button onclick="restartGame()"></button>
+    </div>
   </body>
   <script src="index.js"></script>
 </html>
