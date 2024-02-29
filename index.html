@@ -7,14 +7,18 @@
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Macondo&family=Zeyada&display=swap");
     </style>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&family=Macondo&family=Zeyada&display=swap");
+    </style>
     <link rel="icon" type="image/x-icon" href="images/jester.png" />
     <title>JestQuest</title>
   </head>
   <body>
     <div id="initial-screen" class="show">
       <div id="lore-text">
+        <img src="/JestQuest/images/letters-removebg-preview.png" alt="JestQuest">
         <p>
-          In a tower high, where the ravens croon, Lies the jester’s fate, under
+          <span id="upper-text">In a tower high,</span> where the ravens croon, Lies the jester’s fate, under
           the wane of moon. Cursed by the spin of a witch’s loom, Doomed to
           dwell in a “crazy” room. For centuries old, in a cap and bells, My
           laughter echoes through these cells. A quest bestowed, by ancient
@@ -31,10 +35,11 @@
         </p>
       </div>
       <button class="shiny-button" id="start-btn"></button>
-      <button class="shiny-button" id="instructions-btn">INSTRUCTIONS</button>
-      <div id="instructions-screen"></div>
+      <button class="shiny-button" id="instructions-btn"></button>
     </div>
-
+    <div id="instructions-screen">
+      <button id="back-to-main-menu-btn"></button>
+    </div>
     <div id="game-screen">
       <div id="transition-screen">
         <button class="shiny-button" id="room1-btn"></button>
@@ -43,42 +48,43 @@
       </div>
       <div id="player-info">
         <p id="player-score"></p>
+        <img id="coins-img" src="/JestQuest/images/coins.png" alt="coins">
       </div>
       <div id="popup" class="fullscreen-popup">
-        <p>you opened a door!</p>
+        <p></p>
         <img id="item-found-img" src="" alt="item found" />
-        <button onclick="closePopup()">Close</button>
+        <button id="popup-btn" onclick="closePopup()"></button>
       </div>
       <div id="room1">
-        <button class="shiny-button" id="room1-door1-btn">Door 1</button>
-        <button class="shiny-button" id="room1-door2-btn">Door 2</button>
-        <button class="shiny-button" id="room1-door3-btn">Door 3</button>
-        <button class="shiny-button" id="room1-door4-btn">Door 4</button>
-        <button class="exit-room-btn">Exit Level</button>
+        <button class="shiny-button" id="room1-door1-btn"></button>
+        <button class="shiny-button" id="room1-door2-btn"></button>
+        <button class="shiny-button" id="room1-door3-btn"></button>
+        <button class="shiny-button" id="room1-door4-btn"></button>
+        <button class="exit-room-btn"></button>
       </div>
       <div id="room2">
-        <button class="shiny-button" id="room2-door1-btn">Door 1</button>
-        <button class="shiny-button" id="room2-door2-btn">Door 2</button>
-        <button class="exit-room-btn">Exit Level</button>
+        <button class="shiny-button" id="room2-door1-btn"></button>
+        <button class="shiny-button" id="room2-door2-btn"></button>
+        <button class="exit-room-btn"></button>
       </div>
       <div id="room3">
-        <button class="shiny-button" id="room3-door1-btn">Door 1</button>
-        <button class="shiny-button" id="room3-door2-btn">Door 2</button>
-        <button class="shiny-button" id="room3-door3-btn">Door 3</button>
-        <button class="shiny-button" id="room3-door4-btn">Door 4</button>
-        <button class="shiny-button" id="room3-door5-btn">Door 5</button>
-        <button class="shiny-button" id="room3-door6-btn">Door 6</button>
-        <button class="shiny-button" id="room3-door7-btn">Door 7</button>
-        <button class="exit-room-btn">Exit Level</button>
+        <button class="shiny-button" id="room3-door1-btn"></button>
+        <button class="shiny-button" id="room3-door2-btn"></button>
+        <button class="shiny-button" id="room3-door3-btn"></button>
+        <button class="shiny-button" id="room3-door4-btn"></button>
+        <button class="shiny-button" id="room3-door5-btn"></button>
+        <button class="shiny-button" id="room3-door6-btn"></button>
+        <button class="shiny-button" id="room3-door7-btn"></button>
+        <button class="exit-room-btn"></button>
       </div>
     </div>
     <div id="end-screen-victory">
-      WINNER
-      <button onclick="restartGame()"></button>
+      <img src="/JestQuest/images/vitoriavitoria-removebg-preview.png" alt="victory text">
+      <button class="restart-btn" onclick="restartGame()"></button>
     </div>
     <div id="end-screen-defeat">
-      LOSER
-      <button onclick="restartGame()"></button>
+            <img src="/JestQuest/images/derrotaderrota.png" alt="defeat text">
+      <button class="restart-btn" onclick="restartGame()"></button>
     </div>
   </body>
   <script src="index.js"></script>

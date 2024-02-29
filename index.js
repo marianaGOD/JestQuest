@@ -40,7 +40,7 @@ class Room {
 class Door {
   constructor(name) {
     this.name = name;
-    this.isOpened = false
+    this.isOpened = false;
     this.randomizeDoors();
   }
   randomizeDoors() {
@@ -59,13 +59,13 @@ class Item {
     this.randomizeItem();
   }
   randomizeItem() {
-    let bottle = { value: 3, imageUrl: "images/objbottle.jpeg" };
-    let candle = { value: 1, imageUrl: "images/objcandle.jpeg" };
-    let wrench = { value: 2, imageUrl: "images/objchave.jpeg" };
-    let doll = { value: 6, imageUrl: "images/objdoll.jpeg" };
-    let gramophone = { value: 6, imageUrl: "images/objgramophone.jpeg" };
-    let phone = { value: 5, imageUrl: "images/objphone.jpeg" };
-    let picture = { value: 6, imageUrl: "images/objpicture.jpeg" };
+    let bottle = { value: 3, imageUrl: "images/objbottle2.png" };
+    let candle = { value: 1, imageUrl: "images/objcandle2.png" };
+    let wrench = { value: 2, imageUrl: "images/objchave2.png" };
+    let doll = { value: 6, imageUrl: "images/objdoll2.png" };
+    let gramophone = { value: 6, imageUrl: "images/objgramophone2.png" };
+    let phone = { value: 5, imageUrl: "images/objphone2.png" };
+    let picture = { value: 6, imageUrl: "images/objpicture2.png" };
 
     let objArr = [];
     objArr.push(bottle, candle, wrench, doll, gramophone, phone, picture);
@@ -96,13 +96,17 @@ let hauntedHouseSound = new Audio("sound/haunted.mp3"); //https://www.youtube.co
 hauntedHouseSound.volume = 0.1;
 let booSound = new Audio("sound/boo.mp3");
 booSound.volume = 1;
-let circusSound = new Audio ("sound/circus.mp3")
-circusSound.volume = 0.5
+let circusSound = new Audio("sound/circus.mp3");
+circusSound.volume = 0.5;
+let yesWin = new Audio("sound/yes.wav");
+let noDefeat = new Audio("sound/no.mp3")
 
 //HTML CONTAINERS
 const startScreenContainer = document.getElementById("initial-screen");
 const gameScreenContainer = document.getElementById("game-screen");
-const instructionsScreenContainer = document.getElementById("instructions-screen");
+const instructionsScreenContainer = document.getElementById(
+  "instructions-screen"
+);
 const transitionScreenContainer = document.getElementById("transition-screen");
 const gameEndScreenContainer = document.getElementById("end-screen");
 const playerInfoContainer = document.getElementById("player-info");
@@ -127,6 +131,9 @@ const exitLevelButtons = document.querySelectorAll(".exit-room-btn");
 exitLevelButtons.forEach((btn) =>
   btn.addEventListener("click", goBackToTransitionScreen)
 );
+const exitToMainMenuBtn = document.getElementById("back-to-main-menu-btn");
+exitToMainMenuBtn.addEventListener("click", goBackToMainMenu);
+
 const room1Door1Btn = document.getElementById("room1-door1-btn");
 room1Door1Btn.addEventListener("click", openRoomDoor1);
 const room1Door2Btn = document.getElementById("room1-door2-btn");
@@ -158,6 +165,11 @@ room3Door7Btn.addEventListener("click", openRoomDoor7);
 function goToInstructions() {
   startScreenContainer.classList.remove("show");
   instructionsScreenContainer.classList.add("show");
+}
+
+function goBackToMainMenu() {
+  instructionsScreenContainer.classList.remove("show");
+  startScreenContainer.classList.add("show");
 }
 
 function goBackToTransitionScreen() {
@@ -221,9 +233,9 @@ function prepareRoom3() {
 function openRoomDoor1() {
   let isGoodDoor = game.currentRoom.doors[0].isGoodDoor;
   let doorItem = game.currentRoom.doors[0].item;
-  let isOpenedDoor = game.currentRoom.doors[0].isOpened
+  let isOpenedDoor = game.currentRoom.doors[0].isOpened;
   if (isOpenedDoor === true) {
-    return
+    return;
   }
   if (isGoodDoor) {
     player.score += doorItem.value;
@@ -362,7 +374,7 @@ function showPopupGoodDoor(imageUrl) {
   document.getElementById("popup").classList.add("show");
   document.getElementById("item-found-img").src = imageUrl;
   document.getElementById("player-score").innerText = player.score;
-  circusSound.play()
+  circusSound.play();
 }
 
 function showPopupBadDoor() {
@@ -377,17 +389,19 @@ function showPopupBadDoor() {
 function closePopup() {
   document.getElementById("popup").classList.remove("show");
   document.getElementById("popup").classList.remove("bad-door-screen");
-  circusSound.pause()
-  booSound.pause()
+  circusSound.pause();
+  booSound.pause();
 }
 
 function endGame() {
   if (player.score <= 0) {
     endScreenDefeat.classList.add("show");
     gameScreenContainer.classList.remove("show");
+    noDefeat.play();
   } else if (player.score >= 13) {
     endScreenVictory.classList.add("show");
     gameScreenContainer.classList.remove("show");
+    yesWin.play();
   }
 }
 
