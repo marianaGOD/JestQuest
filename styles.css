@@ -69,7 +69,7 @@ top: 1%;
 
 #instructions-screen {
   display: none;
-  background-image: url("images/instructions.jpeg");
+  background-image: url("/JestQuest/images/Instructions.jpeg");
   background-size: cover;
   width: 100%;
   height: 100vh;
